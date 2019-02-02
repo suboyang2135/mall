@@ -10,19 +10,36 @@ import java.util.Map;
 
 /**
  * 通用返回对象
- * Created by macro on 2018/4/26.
+ * @author macro
+ * @date 2018/4/26
  */
 public class CommonResult {
-    //操作成功
-    public static final int SUCCESS = 200;
-    //操作失败
-    public static final int FAILED = 500;
-    //参数校验失败
-    public static final int VALIDATE_FAILED = 404;
-    //未认证
-    public static final int UNAUTHORIZED = 401;
-    //未授权
-    public static final int  FORBIDDEN = 403;
+
+    /**
+     * 操作成功
+     */
+    private static final int SUCCESS = 200;
+
+    /**
+     * 操作失败
+     */
+    private static final int FAILED = 500;
+
+    /**
+     * 参数校验失败
+     */
+    private static final int VALIDATE_FAILED = 404;
+
+    /**
+     * 未认证
+     */
+    private static final int UNAUTHORIZED = 401;
+
+    /**
+     * 未授权
+     */
+    private static final int FORBIDDEN = 403;
+
     private int code;
     private String message;
     private Object data;
@@ -44,7 +61,7 @@ public class CommonResult {
      */
     public CommonResult pageSuccess(List data) {
         PageInfo pageInfo = new PageInfo(data);
-        Map<String, Object> result = new HashMap<>();
+        Map<String, Object> result = new HashMap<>(5);
         result.put("pageSize", pageInfo.getPageSize());
         result.put("totalPage", pageInfo.getPages());
         result.put("total", pageInfo.getTotal());
@@ -102,6 +119,7 @@ public class CommonResult {
 
     /**
      * 参数验证失败使用
+     *
      * @param result 错误信息
      */
     public CommonResult validateFailed(BindingResult result) {

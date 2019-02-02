@@ -16,11 +16,12 @@ import java.io.IOException;
  * Created by macro on 2018/4/26.
  */
 @Component
-public class RestfulAccessDeniedHandler implements AccessDeniedHandler{
+public class RestfulAccessDeniedHandler implements AccessDeniedHandler {
+
     @Override
     public void handle(HttpServletRequest request,
                        HttpServletResponse response,
-                       AccessDeniedException e) throws IOException, ServletException {
+                       AccessDeniedException e) throws IOException {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
         response.getWriter().println(JsonUtil.objectToJson(new CommonResult().forbidden(e.getMessage())));

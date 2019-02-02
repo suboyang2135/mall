@@ -28,7 +28,7 @@ public class UmsRoleController {
     @ResponseBody
     public Object create(@RequestBody UmsRole role) {
         int count = roleService.create(role);
-        if(count>0){
+        if (count > 0) {
             return new CommonResult().success(count);
         }
         return new CommonResult().failed();
@@ -38,8 +38,8 @@ public class UmsRoleController {
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
     public Object update(@PathVariable Long id, @RequestBody UmsRole role) {
-        int count = roleService.update(id,role);
-        if(count>0){
+        int count = roleService.update(id, role);
+        if (count > 0) {
             return new CommonResult().success(count);
         }
         return new CommonResult().failed();
@@ -50,7 +50,7 @@ public class UmsRoleController {
     @ResponseBody
     public Object delete(@RequestParam("ids") List<Long> ids) {
         int count = roleService.delete(ids);
-        if(count>0){
+        if (count > 0) {
             return new CommonResult().success(count);
         }
         return new CommonResult().failed();
@@ -60,7 +60,7 @@ public class UmsRoleController {
     @RequestMapping(value = "/permission/{roleId}", method = RequestMethod.GET)
     @ResponseBody
     public Object getPermissionList(@PathVariable Long roleId) {
-        List<UmsPermission> permissionList =roleService.getPermissionList(roleId);
+        List<UmsPermission> permissionList = roleService.getPermissionList(roleId);
         return new CommonResult().success(permissionList);
     }
 
@@ -69,17 +69,17 @@ public class UmsRoleController {
     @ResponseBody
     public Object updatePermission(@RequestParam Long roleId,
                                    @RequestParam("permissionIds") List<Long> permissionIds) {
-        int count = roleService.updatePermission(roleId,permissionIds);
-        if(count>0){
+        int count = roleService.updatePermission(roleId, permissionIds);
+        if (count > 0) {
             return new CommonResult().success(count);
         }
         return new CommonResult().failed();
     }
 
     @ApiOperation("获取所有角色")
-    @RequestMapping(value = "/list",method = RequestMethod.GET)
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
-    public Object list(){
+    public Object list() {
         List<UmsRole> roleList = roleService.list();
         return new CommonResult().success(roleList);
     }
