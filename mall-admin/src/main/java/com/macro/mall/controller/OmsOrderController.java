@@ -19,6 +19,7 @@ import java.util.List;
 @Api(tags = "OmsOrderController", description = "订单管理")
 @RequestMapping("/order")
 public class OmsOrderController {
+
     @Autowired
     private OmsOrderService orderService;
 

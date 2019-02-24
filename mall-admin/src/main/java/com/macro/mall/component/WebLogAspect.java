@@ -77,7 +77,7 @@ public class WebLogAspect {
         webLog.setStartTime(startTime.get());
         webLog.setUri(request.getRequestURI());
         webLog.setUrl(request.getRequestURL().toString());
-        Map<String, Object> logMap = new HashMap<>();
+        Map<String, Object> logMap = new HashMap<>(5);
         logMap.put("url", webLog.getUrl());
         logMap.put("method", webLog.getMethod());
         logMap.put("parameter", webLog.getParameter());

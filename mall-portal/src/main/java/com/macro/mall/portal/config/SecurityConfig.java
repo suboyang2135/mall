@@ -90,6 +90,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new Md5PasswordEncoder();
     }
 
+    @Override
     @Bean
     public UserDetailsService userDetailsService() {
         //获取登录用户信息

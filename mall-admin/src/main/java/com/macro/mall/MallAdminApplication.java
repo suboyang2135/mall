@@ -7,10 +7,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * 应用启动入口
- * Created by macro on 2018/4/26.
+ *
+ * @author macro
+ * @date 2018/4/26
  */
 @SpringBootApplication
-@MapperScan({"com.macro.mall.mapper","com.macro.mall.dao"})
+@MapperScan({"com.macro.mall.mapper", "com.macro.mall.dao"})
 @EnableTransactionManagement
 public class MallAdminApplication {
     public static void main(String[] args) {
